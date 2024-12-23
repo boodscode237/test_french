@@ -5,229 +5,292 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test de Niveau de Français</title>
     <style>
+        /* General Styling */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
         h1 {
             text-align: center;
+            color: #4caf50;
+            margin-bottom: 30px;
         }
+
+        .container {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 800px;
+        }
+
         .question {
             margin-bottom: 20px;
         }
+
         .question label {
-            display: block;
+            font-size: 16px;
         }
+
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #textComprehension {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
         .result {
             font-size: 1.5em;
             text-align: center;
             margin-top: 30px;
+            color: #ffcc00;
         }
-        #textComprehension {
-            margin-bottom: 20px;
-        }
+
         .correct {
-            color: green;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
         }
+
         .incorrect {
-            color: red;
+            background-color: #f44336;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
         }
+
+        .question .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Test de Niveau de Français</h1>
-    <form id="quizForm">
-        <!-- Grammaire et vocabulaire questions (q1 to q20) -->
+    <div class="container">
+        <h1>Test de Niveau de Français</h1>
+        <form id="quizForm">
+            <!-- Grammaire et vocabulaire questions (q1 to q20) -->
 
-        <div class="question">
-            <label>1. Complétez la phrase : "Je ________ un livre."</label>
-            <input type="radio" name="q1" value="a"> mange<br>
-            <input type="radio" name="q1" value="b"> lis<br>
-            <input type="radio" name="q1" value="c"> cour<br>
-        </div>
+            <div class="question">
+                <label>1. Complétez la phrase : "Je ________ un livre."</label>
+                <input type="radio" name="q1" value="a"> mange<br>
+                <input type="radio" name="q1" value="b"> lis<br>
+                <input type="radio" name="q1" value="c"> cour<br>
+            </div>
 
-        <div class="question">
-            <label>2. Choisissez la bonne conjugaison : "Nous ________ (être) en vacances."</label>
-            <input type="radio" name="q2" value="a"> sommes<br>
-            <input type="radio" name="q2" value="b"> êtes<br>
-            <input type="radio" name="q2" value="c"> est<br>
-        </div>
+            <div class="question">
+                <label>2. Choisissez la bonne conjugaison : "Nous ________ (être) en vacances."</label>
+                <input type="radio" name="q2" value="a"> sommes<br>
+                <input type="radio" name="q2" value="b"> êtes<br>
+                <input type="radio" name="q2" value="c"> est<br>
+            </div>
 
-        <div class="question">
-            <label>3. Quelle est la bonne phrase ?</label>
-            <input type="radio" name="q3" value="a"> Il a aller au travail.<br>
-            <input type="radio" name="q3" value="b"> Il va aller au travail.<br>
-            <input type="radio" name="q3" value="c"> Il vas aller au travail.<br>
-        </div>
+            <div class="question">
+                <label>3. Quelle est la bonne phrase ?</label>
+                <input type="radio" name="q3" value="a"> Il a aller au travail.<br>
+                <input type="radio" name="q3" value="b"> Il va aller au travail.<br>
+                <input type="radio" name="q3" value="c"> Il vas aller au travail.<br>
+            </div>
 
-        <div class="question">
-            <label>4. Complétez la phrase : "Elle ________ (faire) ses devoirs."</label>
-            <input type="radio" name="q4" value="a"> fait<br>
-            <input type="radio" name="q4" value="b"> fais<br>
-            <input type="radio" name="q4" value="c"> faisons<br>
-        </div>
+            <div class="question">
+                <label>4. Complétez la phrase : "Elle ________ (faire) ses devoirs."</label>
+                <input type="radio" name="q4" value="a"> fait<br>
+                <input type="radio" name="q4" value="b"> fais<br>
+                <input type="radio" name="q4" value="c"> faisons<br>
+            </div>
 
-        <div class="question">
-            <label>5. Quelle est la forme correcte du verbe ? "Vous ________ (parler) français."</label>
-            <input type="radio" name="q5" value="a"> parle<br>
-            <input type="radio" name="q5" value="b"> parlez<br>
-            <input type="radio" name="q5" value="c"> parlant<br>
-        </div>
+            <div class="question">
+                <label>5. Quelle est la forme correcte du verbe ? "Vous ________ (parler) français."</label>
+                <input type="radio" name="q5" value="a"> parle<br>
+                <input type="radio" name="q5" value="b"> parlez<br>
+                <input type="radio" name="q5" value="c"> parlant<br>
+            </div>
 
-        <div class="question">
-            <label>6. Quel est le contraire de "grand" ?</label>
-            <input type="radio" name="q6" value="a"> petit<br>
-            <input type="radio" name="q6" value="b"> gros<br>
-            <input type="radio" name="q6" value="c"> haut<br>
-        </div>
+            <div class="question">
+                <label>6. Quel est le contraire de "grand" ?</label>
+                <input type="radio" name="q6" value="a"> petit<br>
+                <input type="radio" name="q6" value="b"> gros<br>
+                <input type="radio" name="q6" value="c"> haut<br>
+            </div>
 
-        <div class="question">
-            <label>7. Quel mot décrit un lieu pour acheter des médicaments ?</label>
-            <input type="radio" name="q7" value="a"> école<br>
-            <input type="radio" name="q7" value="b"> pharmacie<br>
-            <input type="radio" name="q7" value="c"> banque<br>
-        </div>
+            <div class="question">
+                <label>7. Quel mot décrit un lieu pour acheter des médicaments ?</label>
+                <input type="radio" name="q7" value="a"> école<br>
+                <input type="radio" name="q7" value="b"> pharmacie<br>
+                <input type="radio" name="q7" value="c"> banque<br>
+            </div>
 
-        <div class="question">
-            <label>8. Que signifie le mot "chocolat" ?</label>
-            <input type="radio" name="q8" value="a"> Un fruit<br>
-            <input type="radio" name="q8" value="b"> Un légume<br>
-            <input type="radio" name="q8" value="c"> Un dessert sucré<br>
-        </div>
+            <div class="question">
+                <label>8. Que signifie le mot "chocolat" ?</label>
+                <input type="radio" name="q8" value="a"> Un fruit<br>
+                <input type="radio" name="q8" value="b"> Un légume<br>
+                <input type="radio" name="q8" value="c"> Un dessert sucré<br>
+            </div>
 
-        <div class="question">
-            <label>9. Comment appelle-t-on la personne qui fait le ménage dans une maison ?</label>
-            <input type="radio" name="q9" value="a"> Coiffeur<br>
-            <input type="radio" name="q9" value="b"> Médecin<br>
-            <input type="radio" name="q9" value="c"> Femme de ménage<br>
-        </div>
+            <div class="question">
+                <label>9. Comment appelle-t-on la personne qui fait le ménage dans une maison ?</label>
+                <input type="radio" name="q9" value="a"> Coiffeur<br>
+                <input type="radio" name="q9" value="b"> Médecin<br>
+                <input type="radio" name="q9" value="c"> Femme de ménage<br>
+            </div>
 
-        <div class="question">
-            <label>10. Quelle est la traduction de "window" ?</label>
-            <input type="radio" name="q10" value="a"> Fenêtre<br>
-            <input type="radio" name="q10" value="b"> Porte<br>
-            <input type="radio" name="q10" value="c"> Mur<br>
-        </div>
+            <div class="question">
+                <label>10. Quelle est la traduction de "window" ?</label>
+                <input type="radio" name="q10" value="a"> Fenêtre<br>
+                <input type="radio" name="q10" value="b"> Porte<br>
+                <input type="radio" name="q10" value="c"> Mur<br>
+            </div>
 
-        <div class="question">
-            <label>11. Que veut dire "manger" ?</label>
-            <input type="radio" name="q11" value="a"> Boire<br>
-            <input type="radio" name="q11" value="b"> Dormir<br>
-            <input type="radio" name="q11" value="c"> Consommer de la nourriture<br>
-        </div>
+            <div class="question">
+                <label>11. Que veut dire "manger" ?</label>
+                <input type="radio" name="q11" value="a"> Boire<br>
+                <input type="radio" name="q11" value="b"> Dormir<br>
+                <input type="radio" name="q11" value="c"> Consommer de la nourriture<br>
+            </div>
 
-        <div class="question">
-            <label>12. Quel est l'animal qui miaule ?</label>
-            <input type="radio" name="q12" value="a"> Chien<br>
-            <input type="radio" name="q12" value="b"> Chat<br>
-            <input type="radio" name="q12" value="c"> Vache<br>
-        </div>
+            <div class="question">
+                <label>12. Quel est l'animal qui miaule ?</label>
+                <input type="radio" name="q12" value="a"> Chien<br>
+                <input type="radio" name="q12" value="b"> Chat<br>
+                <input type="radio" name="q12" value="c"> Vache<br>
+            </div>
 
-        <div class="question">
-            <label>13. Quel mot décrit une personne qui fait du sport ?</label>
-            <input type="radio" name="q13" value="a"> Médecin<br>
-            <input type="radio" name="q13" value="b"> Sportif<br>
-            <input type="radio" name="q13" value="c"> Enseignant<br>
-        </div>
+            <div class="question">
+                <label>13. Quel mot décrit une personne qui fait du sport ?</label>
+                <input type="radio" name="q13" value="a"> Médecin<br>
+                <input type="radio" name="q13" value="b"> Sportif<br>
+                <input type="radio" name="q13" value="c"> Enseignant<br>
+            </div>
 
-        <div class="question">
-            <label>14. Où vit Paul ?</label>
-            <input type="radio" name="q14" value="a"> À Lyon<br>
-            <input type="radio" name="q14" value="b"> À Paris<br>
-            <input type="radio" name="q14" value="c"> À Marseille<br>
-        </div>
+            <div class="question">
+                <label>14. Où vit Paul ?</label>
+                <input type="radio" name="q14" value="a"> À Lyon<br>
+                <input type="radio" name="q14" value="b"> À Paris<br>
+                <input type="radio" name="q14" value="c"> À Marseille<br>
+            </div>
 
-        <div class="question">
-            <label>15. Comment Paul se rend-il à l'université ?</label>
-            <input type="radio" name="q15" value="a"> En bus<br>
-            <input type="radio" name="q15" value="b"> En métro<br>
-            <input type="radio" name="q15" value="c"> En voiture<br>
-        </div>
+            <div class="question">
+                <label>15. Comment Paul se rend-il à l'université ?</label>
+                <input type="radio" name="q15" value="a"> En bus<br>
+                <input type="radio" name="q15" value="b"> En métro<br>
+                <input type="radio" name="q15" value="c"> En voiture<br>
+            </div>
 
-        <div class="question">
-            <label>16. Que fait Paul le week-end ?</label>
-            <input type="radio" name="q16" value="a"> Il va au travail<br>
-            <input type="radio" name="q16" value="b"> Il se repose chez lui<br>
-            <input type="radio" name="q16" value="c"> Il se promène dans les parcs ou va au cinéma<br>
-        </div>
+            <div class="question">
+                <label>16. Que fait Paul le week-end ?</label>
+                <input type="radio" name="q16" value="a"> Il va au travail<br>
+                <input type="radio" name="q16" value="b"> Il se repose chez lui<br>
+                <input type="radio" name="q16" value="c"> Il se promène dans les parcs ou va au cinéma<br>
+            </div>
 
-        <div class="question">
-            <label>17. Avec qui Paul vit-il ?</label>
-            <input type="radio" name="q17" value="a"> Avec sa famille<br>
-            <input type="radio" name="q17" value="b"> Avec ses amis<br>
-            <input type="radio" name="q17" value="c"> Il vit seul<br>
-        </div>
+            <div class="question">
+                <label>17. Avec qui Paul vit-il ?</label>
+                <input type="radio" name="q17" value="a"> Avec sa famille<br>
+                <input type="radio" name="q17" value="b"> Avec ses amis<br>
+                <input type="radio" name="q17" value="c"> Il vit seul<br>
+            </div>
 
-        <div class="question">
-            <label>18. Que prend Paul tous les matins ?</label>
-            <input type="radio" name="q18" value="a"> Le vélo<br>
-            <input type="radio" name="q18" value="b"> Le métro<br>
-            <input type="radio" name="q18" value="c"> Le bus<br>
-        </div>
+            <div class="question">
+                <label>18. Que prend Paul tous les matins ?</label>
+                <input type="radio" name="q18" value="a"> Le vélo<br>
+                <input type="radio" name="q18" value="b"> Le métro<br>
+                <input type="radio" name="q18" value="c"> Le bus<br>
+            </div>
 
-        <div class="question">
-            <label>19. Qu'est-ce que Paul aime faire le week-end ?</label>
-            <input type="radio" name="q19" value="a"> Travailler<br>
-            <input type="radio" name="q19" value="b"> Se promener et aller au cinéma<br>
-            <input type="radio" name="q19" value="c"> Rester à la maison<br>
-        </div>
+            <div class="question">
+                <label>19. Qu'est-ce que Paul aime faire le week-end ?</label>
+                <input type="radio" name="q19" value="a"> Travailler<br>
+                <input type="radio" name="q19" value="b"> Se promener et aller au cinéma<br>
+                <input type="radio" name="q19" value="c"> Rester à la maison<br>
+            </div>
 
-        <div class="question">
-            <label>20. Pourquoi Paul prend-il le métro ?</label>
-            <input type="radio" name="q20" value="a"> Pour aller au travail<br>
-            <input type="radio" name="q20" value="b"> Pour aller à l'université<br>
-            <input type="radio" name="q20" value="c"> Pour visiter des amis<br>
-        </div>
+            <div class="question">
+                <label>20. Pourquoi Paul prend-il le métro ?</label>
+                <input type="radio" name="q20" value="a"> Pour aller au travail<br>
+                <input type="radio" name="q20" value="b"> Pour aller à l'université<br>
+                <input type="radio" name="q20" value="c"> Pour visiter des amis<br>
+            </div>
 
-        <!-- Comprehension de texte -->
-        <div id="textComprehension">
-            <h3>Compréhension de texte :</h3>
-            <p><strong>Texte :</strong></p>
-            <p>Paul est un étudiant de 22 ans qui vit à Paris depuis deux ans. Il est originaire de Bordeaux. Chaque matin, il prend le métro pour se rendre à l'université, où il étudie l'histoire de l'art. Il aime beaucoup Paris, surtout les musées et les parcs. Le week-end, il aime aller au cinéma ou se promener dans le jardin des Tuileries. Il trouve que c'est un excellent moyen de se détendre après une semaine d'études. Paul partage son appartement avec trois autres étudiants et ils sont tous très heureux de vivre à Paris. Le soir, ils préparent souvent des repas ensemble et parlent de leurs journées.</p>
-        </div>
+            <!-- Comprehension de texte -->
+            <div id="textComprehension">
+                <h3>Compréhension de texte :</h3>
+                <p><strong>Texte :</strong></p>
+                <p>
+                    Paul est un étudiant qui vit à Paris. Chaque jour, il prend le métro pour se rendre à l'université, où il étudie les sciences sociales. Ses journées sont bien remplies, car après les cours, il passe souvent du temps avec ses amis dans les cafés de la ville. Le week-end, il aime se promener dans les parcs parisiens ou aller au cinéma. Parfois, il se rend à des expositions d'art pour nourrir sa passion pour la culture. Paul est passionné par l’histoire et rêve de voyager dans d'autres pays pour découvrir différentes cultures et traditions. Paris est une ville vibrante, et il se sent chanceux d'y vivre.
+                </p>
+            </div>
 
-        <div class="question">
-            <label>21. Où vit Paul ?</label>
-            <input type="radio" name="q21" value="a"> À Lyon<br>
-            <input type="radio" name="q21" value="b"> À Paris<br>
-            <input type="radio" name="q21" value="c"> À Marseille<br>
-        </div>
+            <div class="question">
+                <label>21. Où vit Paul ?</label>
+                <input type="radio" name="q21" value="a"> À Lyon<br>
+                <input type="radio" name="q21" value="b"> À Paris<br>
+                <input type="radio" name="q21" value="c"> À Marseille<br>
+            </div>
 
-        <div class="question">
-            <label>22. Quel est le domaine d'étude de Paul ?</label>
-            <input type="radio" name="q22" value="a"> L'histoire de l'art<br>
-            <input type="radio" name="q22" value="b"> La médecine<br>
-            <input type="radio" name="q22" value="c"> Le droit<br>
-        </div>
+            <div class="question">
+                <label>22. Comment Paul se rend-il à l'université ?</label>
+                <input type="radio" name="q22" value="a"> En bus<br>
+                <input type="radio" name="q22" value="b"> En métro<br>
+                <input type="radio" name="q22" value="c"> En voiture<br>
+            </div>
 
-        <div class="question">
-            <label>23. Qu'est-ce que Paul aime faire le week-end ?</label>
-            <input type="radio" name="q23" value="a"> Aller au musée<br>
-            <input type="radio" name="q23" value="b"> Se promener et aller au cinéma<br>
-            <input type="radio" name="q23" value="c"> Faire du shopping<br>
-        </div>
+            <div class="question">
+                <label>23. Que fait Paul le week-end ?</label>
+                <input type="radio" name="q23" value="a"> Il va au travail<br>
+                <input type="radio" name="q23" value="b"> Il se repose chez lui<br>
+                <input type="radio" name="q23" value="c"> Il se promène dans les parcs ou va au cinéma<br>
+            </div>
 
-        <div class="question">
-            <label>24. Avec qui Paul vit-il à Paris ?</label>
-            <input type="radio" name="q24" value="a"> Avec ses parents<br>
-            <input type="radio" name="q24" value="b"> Avec ses amis<br>
-            <input type="radio" name="q24" value="c"> Il vit seul<br>
-        </div>
+            <div class="question">
+                <label>24. Avec qui Paul vit-il ?</label>
+                <input type="radio" name="q24" value="a"> Avec sa famille<br>
+                <input type="radio" name="q24" value="b"> Avec ses amis<br>
+                <input type="radio" name="q24" value="c"> Il vit seul<br>
+            </div>
 
-        <div class="question">
-            <label>25. Que font Paul et ses amis le soir ?</label>
-            <input type="radio" name="q25" value="a"> Ils vont au cinéma<br>
-            <input type="radio" name="q25" value="b"> Ils préparent des repas ensemble et parlent<br>
-            <input type="radio" name="q25" value="c"> Ils font du sport<br>
-        </div>
+            <div class="question">
+                <label>25. Que prend Paul tous les matins ?</label>
+                <input type="radio" name="q25" value="a"> Le vélo<br>
+                <input type="radio" name="q25" value="b"> Le métro<br>
+                <input type="radio" name="q25" value="c"> Le bus<br>
+            </div>
 
-        <div class="question">
-            <button type="button" onclick="calculateScore()">Soumettre le test</button>
-        </div>
-    </form>
+            <div class="question">
+                <button type="button" onclick="calculateScore()">Soumettre le test</button>
+            </div>
+        </form>
 
-    <div id="result" class="result"></div>
+        <div id="result" class="result"></div>
+    </div>
 
     <script>
         function calculateScore() {
@@ -257,8 +320,8 @@
                 q19: 'b',
                 q20: 'b',
                 q21: 'b',
-                q22: 'a',
-                q23: 'b',
+                q22: 'b',
+                q23: 'c',
                 q24: 'b',
                 q25: 'b'
             };
@@ -266,18 +329,17 @@
             // Check each question
             for (var i = 1; i <= totalQuestions; i++) {
                 var question = document.querySelector(`input[name="q${i}"]:checked`);
-                var questionElements = document.querySelectorAll(`input[name="q${i}"]`);
-                
-                // Reset all answers to default
-                questionElements.forEach(function(el) {
-                    el.parentElement.classList.remove('correct', 'incorrect');
-                });
-                
-                if (question && question.value === correctAnswers[`q${i}`]) {
-                    score++;
-                    question.parentElement.classList.add('correct');
-                } else {
-                    question.parentElement.classList.add('incorrect');
+                if (question) {
+                    var feedback = document.createElement("div");
+                    if (question.value === correctAnswers[`q${i}`]) {
+                        score++;
+                        feedback.classList.add("correct");
+                        feedback.textContent = `Question ${i}: Correct`;
+                    } else {
+                        feedback.classList.add("incorrect");
+                        feedback.textContent = `Question ${i}: Incorrect`;
+                    }
+                    document.querySelector(`.question:nth-child(${i})`).appendChild(feedback);
                 }
             }
 
