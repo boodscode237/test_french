@@ -24,11 +24,16 @@
             text-align: center;
             margin-top: 30px;
         }
+        #textComprehension {
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Test de Niveau de Français</h1>
     <form id="quizForm">
+        <!-- Grammaire et vocabulaire questions (q1 to q20) -->
+
         <div class="question">
             <label>1. Complétez la phrase : "Je ________ un livre."</label>
             <input type="radio" name="q1" value="a"> mange<br>
@@ -169,39 +174,46 @@
             <input type="radio" name="q20" value="c"> Pour visiter des amis<br>
         </div>
 
-        <div class="question">
-            <label>21. Comment s'appelle le chat de Paul ?</label>
-            <input type="radio" name="q21" value="a"> Minou<br>
-            <input type="radio" name="q21" value="b"> Felix<br>
-            <input type="radio" name="q21" value="c"> Paul<br>
+        <!-- Comprehension de texte -->
+        <div id="textComprehension">
+            <h3>Compréhension de texte :</h3>
+            <p><strong>Texte :</strong></p>
+            <p>Paul est un étudiant. Il vit à Paris avec ses amis. Tous les matins, il prend le métro pour aller à l'université. Le week-end, il aime se promener dans les parcs ou aller au cinéma.</p>
         </div>
 
         <div class="question">
-            <label>22. Quel est le prénom de la sœur de Paul ?</label>
-            <input type="radio" name="q22" value="a"> Marie<br>
-            <input type="radio" name="q22" value="b"> Julie<br>
-            <input type="radio" name="q22" value="c"> Sophie<br>
+            <label>21. Où vit Paul ?</label>
+            <input type="radio" name="q21" value="a"> À Lyon<br>
+            <input type="radio" name="q21" value="b"> À Paris<br>
+            <input type="radio" name="q21" value="c"> À Marseille<br>
         </div>
 
         <div class="question">
-            <label>23. Où Paul travaille-t-il ?</label>
-            <input type="radio" name="q23" value="a"> Dans une banque<br>
-            <input type="radio" name="q23" value="b"> Dans une pharmacie<br>
-            <input type="radio" name="q23" value="c"> Dans un bureau<br>
+            <label>22. Comment Paul se rend-il à l'université ?</label>
+            <input type="radio" name="q22" value="a"> En bus<br>
+            <input type="radio" name="q22" value="b"> En métro<br>
+            <input type="radio" name="q22" value="c"> En voiture<br>
         </div>
 
         <div class="question">
-            <label>24. Quel est le plat préféré de Paul ?</label>
-            <input type="radio" name="q24" value="a"> Pizza<br>
-            <input type="radio" name="q24" value="b"> Sushi<br>
-            <input type="radio" name="q24" value="c"> Hamburger<br>
+            <label>23. Que fait Paul le week-end ?</label>
+            <input type="radio" name="q23" value="a"> Il va au travail<br>
+            <input type="radio" name="q23" value="b"> Il se repose chez lui<br>
+            <input type="radio" name="q23" value="c"> Il se promène dans les parcs ou va au cinéma<br>
         </div>
 
         <div class="question">
-            <label>25. Quelle couleur est la voiture de Paul ?</label>
-            <input type="radio" name="q25" value="a"> Rouge<br>
-            <input type="radio" name="q25" value="b"> Bleu<br>
-            <input type="radio" name="q25" value="c"> Noir<br>
+            <label>24. Avec qui Paul vit-il ?</label>
+            <input type="radio" name="q24" value="a"> Avec sa famille<br>
+            <input type="radio" name="q24" value="b"> Avec ses amis<br>
+            <input type="radio" name="q24" value="c"> Il vit seul<br>
+        </div>
+
+        <div class="question">
+            <label>25. Que prend Paul tous les matins ?</label>
+            <input type="radio" name="q25" value="a"> Le vélo<br>
+            <input type="radio" name="q25" value="b"> Le métro<br>
+            <input type="radio" name="q25" value="c"> Le bus<br>
         </div>
 
         <div class="question">
@@ -238,10 +250,10 @@
                 q18: 'b',
                 q19: 'b',
                 q20: 'b',
-                q21: 'a',
+                q21: 'b',
                 q22: 'b',
                 q23: 'c',
-                q24: 'a',
+                q24: 'b',
                 q25: 'b'
             };
 
