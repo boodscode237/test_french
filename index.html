@@ -27,6 +27,12 @@
         #textComprehension {
             margin-bottom: 20px;
         }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -178,7 +184,7 @@
         <div id="textComprehension">
             <h3>Compréhension de texte :</h3>
             <p><strong>Texte :</strong></p>
-            <p>Paul est un étudiant. Il vit à Paris avec ses amis. Tous les matins, il prend le métro pour aller à l'université. Le week-end, il aime se promener dans les parcs ou aller au cinéma.</p>
+            <p>Paul est un étudiant de 22 ans qui vit à Paris depuis deux ans. Il est originaire de Bordeaux. Chaque matin, il prend le métro pour se rendre à l'université, où il étudie l'histoire de l'art. Il aime beaucoup Paris, surtout les musées et les parcs. Le week-end, il aime aller au cinéma ou se promener dans le jardin des Tuileries. Il trouve que c'est un excellent moyen de se détendre après une semaine d'études. Paul partage son appartement avec trois autres étudiants et ils sont tous très heureux de vivre à Paris. Le soir, ils préparent souvent des repas ensemble et parlent de leurs journées.</p>
         </div>
 
         <div class="question">
@@ -189,31 +195,31 @@
         </div>
 
         <div class="question">
-            <label>22. Comment Paul se rend-il à l'université ?</label>
-            <input type="radio" name="q22" value="a"> En bus<br>
-            <input type="radio" name="q22" value="b"> En métro<br>
-            <input type="radio" name="q22" value="c"> En voiture<br>
+            <label>22. Quel est le domaine d'étude de Paul ?</label>
+            <input type="radio" name="q22" value="a"> L'histoire de l'art<br>
+            <input type="radio" name="q22" value="b"> La médecine<br>
+            <input type="radio" name="q22" value="c"> Le droit<br>
         </div>
 
         <div class="question">
-            <label>23. Que fait Paul le week-end ?</label>
-            <input type="radio" name="q23" value="a"> Il va au travail<br>
-            <input type="radio" name="q23" value="b"> Il se repose chez lui<br>
-            <input type="radio" name="q23" value="c"> Il se promène dans les parcs ou va au cinéma<br>
+            <label>23. Qu'est-ce que Paul aime faire le week-end ?</label>
+            <input type="radio" name="q23" value="a"> Aller au musée<br>
+            <input type="radio" name="q23" value="b"> Se promener et aller au cinéma<br>
+            <input type="radio" name="q23" value="c"> Faire du shopping<br>
         </div>
 
         <div class="question">
-            <label>24. Avec qui Paul vit-il ?</label>
-            <input type="radio" name="q24" value="a"> Avec sa famille<br>
+            <label>24. Avec qui Paul vit-il à Paris ?</label>
+            <input type="radio" name="q24" value="a"> Avec ses parents<br>
             <input type="radio" name="q24" value="b"> Avec ses amis<br>
             <input type="radio" name="q24" value="c"> Il vit seul<br>
         </div>
 
         <div class="question">
-            <label>25. Que prend Paul tous les matins ?</label>
-            <input type="radio" name="q25" value="a"> Le vélo<br>
-            <input type="radio" name="q25" value="b"> Le métro<br>
-            <input type="radio" name="q25" value="c"> Le bus<br>
+            <label>25. Que font Paul et ses amis le soir ?</label>
+            <input type="radio" name="q25" value="a"> Ils vont au cinéma<br>
+            <input type="radio" name="q25" value="b"> Ils préparent des repas ensemble et parlent<br>
+            <input type="radio" name="q25" value="c"> Ils font du sport<br>
         </div>
 
         <div class="question">
@@ -251,8 +257,8 @@
                 q19: 'b',
                 q20: 'b',
                 q21: 'b',
-                q22: 'b',
-                q23: 'c',
+                q22: 'a',
+                q23: 'b',
                 q24: 'b',
                 q25: 'b'
             };
@@ -260,8 +266,18 @@
             // Check each question
             for (var i = 1; i <= totalQuestions; i++) {
                 var question = document.querySelector(`input[name="q${i}"]:checked`);
+                var questionElements = document.querySelectorAll(`input[name="q${i}"]`);
+                
+                // Reset all answers to default
+                questionElements.forEach(function(el) {
+                    el.parentElement.classList.remove('correct', 'incorrect');
+                });
+                
                 if (question && question.value === correctAnswers[`q${i}`]) {
                     score++;
+                    question.parentElement.classList.add('correct');
+                } else {
+                    question.parentElement.classList.add('incorrect');
                 }
             }
 
